@@ -42,14 +42,20 @@ $ git pull # use this after someone else has made a change to the online repo
            # your working on and you want to make your local repo up to date
 ```
 
-### Want to remove a file frome online github repo but keep it locally
+### Remove directory from git and local
 ``` sh
-$ git rm --cached localFileName
-# add localFileName to .gitignore file 
-# then commit these changes
-# push these changes to your repo!
-```
+# You could checkout 'master' with both directories;
 
+$ git rm -r one-of-the-directories
+$ git commit -m "Remove duplicated directory"
+$ git push origin <your-git-branch> (typically 'master', but not always)
+```
+### Remove directory from git but NOT local
+``` sh
+# As mentioned in the comments, what you usually want to do is remove this directory from git but not delete it entirely from the filesystem (local). In that case use:
+
+$ git rm -r --cached myFolder
+```
 ### Commands for fixing problems
 ``` sh
 # undo multiple commits  
